@@ -6,4 +6,19 @@ CREATE TABLE category(
 	categoryArtPieceId
 	categoryArtPieceStyleId
 	categoryArtistId
-)
+);
+
+CREATE TABLE artPiece(
+	artPieceId
+	artPieceStyleId
+	artPieceDescription
+	artPieceArtistId
+	artpieceArtististDescription
+);
+
+CREATE TABLE artist(
+	artistId
+	artistArtPieceId
+);
+
+
