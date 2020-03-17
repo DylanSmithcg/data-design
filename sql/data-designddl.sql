@@ -4,30 +4,32 @@ ALTER DATABASE dsmith265 CHARACTER SET utf8 COLLATE utf8_unicode_ci;
 CREATE TABLE category(
 	categoryId BINARY(16) NOT NULL,
 	categoryArtistId BINARY(16) NOT NULL,
-	categoryArtPieceId BINARY(16) NOT NULL,
-	categoryArtPieceStyleId VARCHAR(30) NOT NULL,
+	categoryArtPostId BINARY(16) NOT NULL,
+	categoryArtPostStyleId BINARY(16) NOT NULL,
 	FOREIGN KEY(categoryArtistId) REFERENCES artist(artistId),
-	FOREIGN KEY(categoryArtPieceId) REFERENCES artPiece(artPieceId),
+	FOREIGN KEY(categoryArtPostId) REFERENCES artPost(artPostId),
 	UNIQUE(categoryId),
+	INDEX(categoryId),
 	PRIMARY KEY(categoryId)
 );
 
-CREATE TABLE artPiece(
-	artPieceId BINARY(16) NOT NULL,
-	artPieceArtistDescription VARCHAR(255),
-	artPieceArtistId BINARY(16) NOT NULL,
-	artPieceCategoryId BINARY(16),
-	artPieceDescription VARCHAR(255) NOT NULL,
-	INDEX(artPieceCategoryId),
-	FOREIGN KEY(artPieceArtistId) REFERENCES artist(artistId),
-	FOREIGN KEY(artPieceCategoryId) REFERENCES category(categoryId),
-	PRIMARY KEY(artPieceId)
+CREATE TABLE artPost(
+	artPostId BINARY(16) NOT NULL,
+	artPostArtistId BINARY(16) NOT NULL,
+	artPostCategoryId BINARY(16) NOT NULL,
+	artPostDescription VARCHAR(255),
+	UNIQUE(artPostId),
+	INDEX(artPostId),
+	FOREIGN KEY(artPostArtistId) REFERENCES artist(artistId),
+	FOREIGN KEY(artPostCategoryId) REFERENCES category(categoryId),
+	PRIMARY KEY(artPostId)
 );
 
 CREATE TABLE artist(
 	artistId BINARY(16) NOT NULL,
-	artistArtPieceId BINARY(16) NOT NULL,
-	FOREIGN KEY(artistArtPieceId) REFERENCES artPiece(artPieceId),
+	artistArtPostId BINARY(16) NOT NULL,
+	UNIQUE(artistId),
+	FOREIGN KEY(artistArtPostId) REFERENCES artPost(artPostId),
 	PRIMARY KEY(artistId)
 );
 

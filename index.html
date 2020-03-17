@@ -31,34 +31,33 @@
 	</p>
 	<ul>
 		<li>categoryId PK</li>
-		<li>categoryArtPieceId FK</li>
-		<li>categoryArtPieceStyleId FK</li>
+		<li>categoryArtPostId FK</li>
+		<li>categoryArtPostStyleId FK</li>
 		<li>categoryArtistId FK</li>
 	</ul>
 	<p>
-		Art Piece
+		Art Post
 	</p>
 	<ul>
-		<li>artPieceId pk</li>
-		<li>artPieceStyleId pk</li>
-		<li>artPieceDescription</li>
-		<li>artPieceArtistId fK</li>
-		<li>artPieceArtistDescription</li>
+		<li>artPostId PK</li>
+		<li>artPostStyleId PK</li>
+		<li>artPostDescription</li>
+		<li>artPostArtistId FK</li>
 	</ul>
 	<p>
 		Artist
 	</p>
 	<ul>
-		<li>ArtistId pk</li>
-		<li>ArtistArtPieceId fk</li>
+		<li>ArtistId PK</li>
+		<li>ArtistArtPostId PK</li>
 	</ul>
 	<p>
 		<strong>Relations</strong>
 	</p>
 		<ul>
-			<li>A category can have multiple art pieces and artists</li>
-			<li>An art piece can be in multiple categories</li>
-			<li>An art piece can have 1 or more artists</li>
+			<li>A category can have multiple art posts and artists</li>
+			<li>An art post can be in multiple categories</li>
+			<li>An art post can have only one artist.</li>
 		</ul>
 	<h3>
 		<a href="epic/erd.html">Entity Relationship Diagram</a>
